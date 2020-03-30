@@ -19,7 +19,8 @@ Changelog
 
 2.1.0\@learningequality
 ^^^^^^^^^^^^^^^^^^^^^^^
-- Python 2.7 and 3.4 support removed
+- Alpha 1: Python 2.7 and 3.4 support removed
+- Alpha 2: ``future`` package re-added
 
 2.0.0\@learningequality
 ^^^^^^^^^^^^^^^^^^^^^^^

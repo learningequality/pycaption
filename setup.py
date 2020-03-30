@@ -17,7 +17,7 @@ dependencies = [
 
 setup(
     name='le-pycaption',
-    version='2.1.0-alpha1',
+    version='2.1.0-alpha2',
     description='Closed caption converter',
     long_description=open(README_PATH).read(),
     author='Joe Norton <joey@nortoncrew.com>',
