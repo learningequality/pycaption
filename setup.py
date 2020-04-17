@@ -9,7 +9,7 @@ README_PATH = os.path.join(
 
 dependencies = [
     'beautifulsoup4>=4.6.3',
-    'lxml>=3.2.3,<4.4.0',
+    'lxml>=4.5.0',
     'cssutils>=0.9.10',
     'future',
     'six>=1.9.0'
