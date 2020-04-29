@@ -1,9 +1,5 @@
 from __future__ import unicode_literals
 import unittest
-import os
-IS_TRAVIS_TESTING = "TRAVIS" in os.environ and os.environ["TRAVIS"] == "true"
-if IS_TRAVIS_TESTING:
-    raise unittest.SkipTest("Tahoma fonts not available on Travis.")
 
 from pycaption import SAMIReader, CaptionReadNoCaptions
 from pycaption.geometry import HorizontalAlignmentEnum, Size, UnitEnum
