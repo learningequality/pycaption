@@ -25,7 +25,8 @@ setup(
     url='https://github.com/learningequality/pycaption',
     license='Apache License, Version 2.0',
     install_requires=dependencies,
-    py_modules=["pycaption", "enum_compat"],
+    py_modules=["enum_compat"],
+    packages=find_packages(),
     include_package_data=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
