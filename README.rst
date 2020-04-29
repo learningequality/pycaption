@@ -16,6 +16,13 @@ For details, see the `documentation <http://pycaption.readthedocs.org>`__.
 Changelog
 ---------
 
+2.2.0\@learningequality
+^^^^^^^^^^^^^^^^^^^^^^^
+- Added ``enum_compat`` library to maintain Python 2.7 support
+- Pinned ``beautifulsoup4`` under ``v4.9.0`` as it caused numerous test failures
+- Unpinned ``lxml``
+- Misc Travis and Tox updates
+
 2.0.0\@learningequality
 ^^^^^^^^^^^^^^^^^^^^^^^
 - Python 2 and 3 support (see branch `py27\@pbs <https://github.com/pbs/pycaption/tree/py27>`__)

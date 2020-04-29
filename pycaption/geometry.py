@@ -13,7 +13,7 @@ from __future__ import division
 from past.builtins import cmp
 from past.utils import old_div
 from builtins import object
-from enum import Enum
+from enum_compat import Enum
 import six
 
 from .exceptions import RelativizationError
