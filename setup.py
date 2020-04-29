@@ -12,7 +12,6 @@ dependencies = [
     'lxml>=3.2.3',
     'cssutils>=0.9.10',
     'future',
-    'enum34',
     'six>=1.9.0'
 ]
 
@@ -26,7 +25,7 @@ setup(
     url='https://github.com/learningequality/pycaption',
     license='Apache License, Version 2.0',
     install_requires=dependencies,
-    packages=find_packages(),
+    py_modules=["pycaption", "enum_compat"],
     include_package_data=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
