@@ -3,7 +3,8 @@ from builtins import zip
 import unittest
 
 import os
-IS_TRAVIS_TESTING = "TRAVIS" in os.environ and os.environ["TRAVIS"] == "true"
+IS_TRAVIS_TESTING = False
+# IS_TRAVIS_TESTING = "TRAVIS" in os.environ and os.environ["TRAVIS"] == "true"
 
 from pycaption import SUPPORTED_READERS, SUPPORTED_WRITERS
 from pycaption.base import CaptionList
