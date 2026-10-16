@@ -11,7 +11,6 @@ dependencies = [
     'beautifulsoup4>=4.6.3,<4.9.0',
     'lxml>=3.2.3',
     'cssutils>=0.9.10',
-    'future',
     'six>=1.9.0'
 ]
 
