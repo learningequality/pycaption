@@ -37,14 +37,13 @@ OBS:
 """
 from __future__ import unicode_literals
 from __future__ import division
-from builtins import chr
 import six
+from six import unichr as chr
 import re
-from future.backports.html.parser import HTMLParseError
 
 from collections import deque, OrderedDict
-from html.entities import name2codepoint
-from html.parser import HTMLParser
+from six.moves.html_entities import name2codepoint
+from six.moves.html_parser import HTMLParser
 from logging import FATAL
 from xml.sax.saxutils import escape
 from copy import deepcopy
@@ -60,6 +59,13 @@ from .geometry import (
     Layout, Alignment, Padding, Size
 )
 from .utils import classic_div
+
+try:
+    from six.moves.html_parser import HTMLParseError
+except ImportError:
+    # Python 3.5 removed HTMLParseError, and its HTMLParser never raises it.
+    class HTMLParseError(Exception):
+        pass
 
 
 SAMI_BASE_MARKUP = '''

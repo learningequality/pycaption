@@ -10,8 +10,6 @@ CONVENTIONS:
 from __future__ import unicode_literals
 from __future__ import division
 
-from past.builtins import cmp
-from builtins import object
 from enum_compat import Enum
 import six
 
@@ -199,6 +197,8 @@ class Stretch(TwoDimensionalObject):
 
     def __bool__(self):
         return True if self.horizontal or self.vertical else False
+
+    __nonzero__ = __bool__  # Python 2
 
     def to_xml_attribute(self, **kwargs):
         """Returns a unicode representation of this object as an xml attribute
@@ -402,6 +402,8 @@ class Point(TwoDimensionalObject):
     def __bool__(self):
         return True if self.x or self.y else False
 
+    __nonzero__ = __bool__  # Python 2
+
     def to_xml_attribute(self, **kwargs):
         """Returns a unicode representation of this object as an xml attribute
         """
@@ -439,7 +441,7 @@ class Size(object):
 
     def __cmp__(self, other):
         if self.unit == other.unit:
-            return cmp(self.value, other.value)
+            return (self.value > other.value) - (self.value < other.value)
         else:
             raise ValueError(u"The sizes should have the same measure units.")
 
@@ -584,6 +586,8 @@ class Size(object):
 
     def __bool__(self):
         return self.unit in UnitEnum and self.value is not None
+
+    __nonzero__ = __bool__  # Python 2
 
 
 class Padding(object):
@@ -784,6 +788,8 @@ class Layout(object):
             self.origin, self.extent, self.padding, self.alignment,
             self.webvtt_positioning
         ])
+
+    __nonzero__ = __bool__  # Python 2
 
     def __repr__(self):
         return (

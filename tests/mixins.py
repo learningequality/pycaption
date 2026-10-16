@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
-from builtins import zip
-from builtins import object
+from six.moves import zip
 from bs4 import BeautifulSoup
 import re
 

@@ -79,8 +79,7 @@ http://www.theneitherworld.com/mcpoodle/SCC_TOOLS/DOCS/SCC_FORMAT.HTML
 from __future__ import unicode_literals
 from __future__ import division
 
-from builtins import range
-from builtins import object
+from six.moves import range
 import six
 import re
 import math
