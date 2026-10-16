@@ -38,7 +38,6 @@ OBS:
 from __future__ import unicode_literals
 from __future__ import division
 from builtins import chr
-from past.utils import old_div
 import six
 import re
 from future.backports.html.parser import HTMLParseError
@@ -60,6 +59,7 @@ from .exceptions import (
 from .geometry import (
     Layout, Alignment, Padding, Size
 )
+from .utils import classic_div
 
 
 SAMI_BASE_MARKUP = '''
@@ -442,13 +442,13 @@ class SAMIWriter(BaseWriter):
 
         :rtype: BeautifulSoup
         """
-        time = old_div(caption.start, 1000)
+        time = classic_div(caption.start, 1000)
 
         if self.last_time and time != self.last_time:
             sami = self._recreate_blank_tag(
                 sami, caption, lang, primary, captions)
 
-        self.last_time = old_div(caption.end, 1000)
+        self.last_time = classic_div(caption.end, 1000)
 
         sami, sync = self._recreate_sync(sami, lang, primary, time)
 

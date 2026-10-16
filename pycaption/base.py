@@ -1,12 +1,12 @@
 from __future__ import unicode_literals
 from __future__ import division
-from past.utils import old_div
 from builtins import object
 import six
 from datetime import timedelta
 from numbers import Number
 
 from .exceptions import CaptionReadError, CaptionReadTimingError
+from .utils import classic_div
 
 # `und` a special identifier for an undetermined language according to ISO 639-2
 DEFAULT_LANGUAGE_CODE = u'und'
@@ -234,7 +234,7 @@ class Caption(object):
         return u''.join(text_nodes).strip()
 
     def _format_timestamp(self, value, msec_separator=None):
-        datetime_value = timedelta(milliseconds=(int(old_div(value, 1000))))
+        datetime_value = timedelta(milliseconds=(int(classic_div(value, 1000))))
 
         str_value = six.text_type(datetime_value)[:11]
         if not datetime_value.microseconds:

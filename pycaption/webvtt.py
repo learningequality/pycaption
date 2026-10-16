@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 from __future__ import division
-from past.utils import old_div
 import six
 import sys
 import re
@@ -17,6 +16,7 @@ from .exceptions import (
     InvalidInputError
 )
 from pycaption.geometry import HorizontalAlignmentEnum
+from .utils import classic_div
 
 # A WebVTT timing line has both start/end times and layout related settings
 # (referred to as 'cue settings' in the documentation)
@@ -380,7 +380,7 @@ class WebVTTWriter(BaseWriter):
             cue_settings += " align:" + alignment
         if left_offset:
             # in VTT, the origin of the cue box is the center, not the left top corner
-            position = left_offset.value + (old_div(cue_width.value, 2)) if cue_width else 50
+            position = left_offset.value + classic_div(cue_width.value, 2) if cue_width else 50
             cue_settings += " position:{}".format(six.text_type(Size(position, UnitEnum.PERCENT)))
         if top_offset:
             cue_settings += " line:" + six.text_type(top_offset)
