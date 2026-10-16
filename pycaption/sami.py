@@ -37,15 +37,13 @@ OBS:
 """
 from __future__ import unicode_literals
 from __future__ import division
-from builtins import chr
-from past.utils import old_div
 import six
+from six import unichr as chr
 import re
-from future.backports.html.parser import HTMLParseError
 
 from collections import deque, OrderedDict
-from html.entities import name2codepoint
-from html.parser import HTMLParser
+from six.moves.html_entities import name2codepoint
+from six.moves.html_parser import HTMLParser
 from logging import FATAL
 from xml.sax.saxutils import escape
 from copy import deepcopy
@@ -60,6 +58,14 @@ from .exceptions import (
 from .geometry import (
     Layout, Alignment, Padding, Size
 )
+from .utils import classic_div
+
+try:
+    from six.moves.html_parser import HTMLParseError
+except ImportError:
+    # Python 3.5 removed HTMLParseError, and its HTMLParser never raises it.
+    class HTMLParseError(Exception):
+        pass
 
 
 SAMI_BASE_MARKUP = '''
@@ -442,13 +448,13 @@ class SAMIWriter(BaseWriter):
 
         :rtype: BeautifulSoup
         """
-        time = old_div(caption.start, 1000)
+        time = classic_div(caption.start, 1000)
 
         if self.last_time and time != self.last_time:
             sami = self._recreate_blank_tag(
                 sami, caption, lang, primary, captions)
 
-        self.last_time = old_div(caption.end, 1000)
+        self.last_time = classic_div(caption.end, 1000)
 
         sami, sync = self._recreate_sync(sami, lang, primary, time)
 

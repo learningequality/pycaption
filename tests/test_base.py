@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from builtins import zip
+from six.moves import zip
 import unittest
 
 from pycaption import SUPPORTED_READERS, SUPPORTED_WRITERS
